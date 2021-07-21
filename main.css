@@ -4,16 +4,22 @@
 
 /* VERY IMPORTANT GUIDE (TO BE READ LATER and for future reference): 
 https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors#types_of_selectors  */
+body {
+  background-color: lavender;
+}
 body > p {
   /* LHS > RHS: select RHS which are only immediate child of LHS. Dont select deep nested RHS */
   text-align: center;
+  font: 2em sans-serif;
 }
 form {
   margin: 0 auto;
   width: 500px;
   padding: 1em;
-  border: 1px dashed #DE3163;
+  border: 1px solid #DE3163;
   border-radius: 1em;
+  background-color: #FAFAE6;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 ul {
   list-style: none;
@@ -46,6 +52,7 @@ input, textarea {
 input:focus,
 textarea:focus {
   border-color: violet;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 textarea {
   vertical-align: top;
@@ -87,4 +94,19 @@ fieldset {
 }
 .command_buttons {
   justify-content: space-evenly;
+  color: rgb(129, 187, 238);
+}
+.command_buttons :nth-child(1) {
+  background-color: red;
+  color: black;
+  width: 6em;
+  border-width: 0;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.command_buttons :nth-child(2){
+  background-color: rgb(80, 218, 80);
+  color: #800080;
+  width: 6em;
+  border-width: 0;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }

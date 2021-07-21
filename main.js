@@ -9,143 +9,126 @@ function isEmpty(str) {
 function hasWhiteSpace(str) {
     return str.indexOf(' ') >= 0;
 }
+function setFocusifpossible(formVerification, idtobefocused) {
+    if(formVerification.focussetter === false){
+        let focusingelement = document.getElementById(`${idtobefocused}`);
+        focusingelement.focus();
+        focusingelement.scrollIntoView();
+        formVerification.focussetter = true;
+    }
+};
+function setFocusifpossibleforRadio(formVerification, idtobefocused) {
+    if(formVerification.focussetter === false){
+        let focusingelement = document.querySelectorAll(`input[name="${idtobefocused}"]`);
+        // src: https://stackoverflow.com/a/27787182
+        focusingelement[0].focus();
+        focusingelement[0].scrollIntoView();
+        formVerification.focussetter = true;
+    }
+};
+function setConsoleandAlertprompts(str) {
+    alert(`Please enter ${str}`);
+    console.log('first name is empty');
+};
+function initiateValueCheck() {
+    let formVerification = {
+        first_name: document.querySelector('#first_name'),
+        last_name: document.querySelector('#last_name'),
+        other_details: document.querySelector('#other_details'),
+        focussetter: false,
+        allGood: true,
+        gender: document.querySelectorAll('input[name="Gender"]'),
+        selectedGender: -1,
+        maritalStatus: document.querySelectorAll('input[name="Marital_status"]'),
+        selectedMaritalStatus: -1,
+        terms_conditions: document.getElementById('terms_conditions'),
+    }
 
-// addEventListener to button: https://www.javascripttutorial.net/dom/events/add-an-event-handler/
-const testbtn = document.querySelector( '.save' );
-testbtn.addEventListener( 'click', function(event){
-    console.log('test button is pressed');
-    let first_name = document.querySelector('#first_name');
-    let last_name = document.querySelector('#last_name');
-    let other_details = document.querySelector('#other_details');
-    let focussetter = false;
-    let allGood = true;
     // src: https://stackoverflow.com/a/17500754
-    if(isEmpty(first_name.value)){
+    if(isEmpty(formVerification.first_name.value)){
         alert('Please enter First name');
         console.log('first name is empty');
-        if(focussetter === false){
-            let focusingelement = document.getElementById('first_name');
-            focusingelement.focus();
-            focusingelement.scrollIntoView();
-            focussetter = true;
-        }
-        allGood = false;
+        setFocusifpossible(formVerification, 'first_name');
+        formVerification.allGood = false;
     }
-    if(isEmpty(last_name.value)){
+    if(isEmpty(formVerification.last_name.value)){
         alert('Please enter Last name');
         console.log('last name is empty');
-        if(focussetter === false){
-            let focusingelement = document.getElementById('last_name');
-            focusingelement.focus();
-            focusingelement.scrollIntoView();
-            focussetter = true;
-        }
-        allGood = false;
+        setFocusifpossible(formVerification, 'last_name');
+        formVerification.allGood = false;
     }
     // src: https://www.javascripttutorial.net/javascript-dom/javascript-radio-button/
-    let gender = document.querySelectorAll('input[name="Gender"]');
-    let selectedGender = -1;
-    for(const genderVal of gender){
+    
+    for(const genderVal of formVerification.gender){
         if(genderVal.checked){
-            selectedGender = genderVal.value;
+            formVerification.selectedGender = genderVal.value;
             break;
         }
     }
-    if(selectedGender === -1){
+    if(formVerification.selectedGender === -1){
         alert('Please enter Gender');
-        if(focussetter === false){
-            let focusingelement = document.querySelectorAll('input[name="Gender"]');
-            // src: https://stackoverflow.com/a/27787182
-            focusingelement[0].focus();
-            focusingelement[0].scrollIntoView();
-            focussetter = true;
-        }
-        allGood = false;
+        setFocusifpossibleforRadio(formVerification, 'Gender');
+        formVerification.allGood = false;
     }
-    let maritalStatus = document.querySelectorAll('input[name="Marital_status"]');
-    let selectedMaritalStatus = -1;
-    for(const married of maritalStatus){
+    
+    for(const married of formVerification.maritalStatus){
         if(married.checked){
-            selectedMaritalStatus = married.value;
+            formVerification.selectedMaritalStatus = married.value;
             break;
         }
     }
-    if(selectedMaritalStatus === -1){
+    if(formVerification.selectedMaritalStatus === -1){
         alert('Please enter Marital status');
-        if(focussetter === false){
-            let focusingelement = document.querySelectorAll('input[name="Marital_status"]');
-            // src: https://stackoverflow.com/a/27787182
-            focusingelement[0].focus();
-            focusingelement[0].scrollIntoView();
-            focussetter = true;
-        }
-        allGood = false;
+        setFocusifpossibleforRadio(formVerification, 'Marital_status');
+        formVerification.allGood = false;
     }
     if(isEmpty(spouse_name.value)){
         alert('Please enter Spouse\'s name');
         console.log('Spouse\'s name is empty');
-        if(focussetter === false){
-            let focusingelement = document.getElementById('other_details');
-            focusingelement.focus();
-            focusingelement.scrollIntoView();
-            focussetter = true;
-        }
-        allGood = false;
+        setFocusifpossible(formVerification, 'spouse_name');
+        formVerification.allGood = false;
     }
-    if(isEmpty(other_details.value)){
+    if(isEmpty(formVerification.other_details.value)){
         alert('Please enter Other details');
         console.log('other details is empty');
-        if(focussetter === false){
-            let focusingelement = document.getElementById('other_details');
-            focusingelement.focus();
-            focusingelement.scrollIntoView();
-            focussetter = true;
-        }
-        allGood = false;
+        setFocusifpossible(formVerification, 'other_details');
+        formVerification.allGood = false;
     }
-    if(!isEmpty(first_name.value) && hasWhiteSpace(first_name.value)){
+    if(!isEmpty(formVerification.first_name.value) && hasWhiteSpace(formVerification.first_name.value)){
         alert('Please remove whitespace from First name');
-        if(focussetter === false){
-            let focusingelement = document.getElementById('first_name');
-            focusingelement.focus();
-            focusingelement.scrollIntoView();
-            focussetter = true;
-        }
-        allGood = false;
+        setFocusifpossible(formVerification, 'first_name');
+        formVerification.allGood = false;
     }
-    if(!isEmpty(last_name.value) && hasWhiteSpace(last_name.value)){
+    if(!isEmpty(formVerification.last_name.value) && hasWhiteSpace(formVerification.last_name.value)){
         alert('Please remove whitespace from Last name');
-        if(focussetter === false){
-            let focusingelement = document.getElementById('last_name');
-            focusingelement.focus();
-            focusingelement.scrollIntoView();
-            focussetter = true;
-        }
-        allGood = false;
+        setFocusifpossible(formVerification, 'last_name');
+        formVerification.allGood = false;
     }
     // src: https://www.w3schools.com/howto/howto_js_display_checkbox_text.asp
-    let terms_conditions = document.getElementById('terms_conditions');
-    if(!terms_conditions.checked){
+    
+    if(!formVerification.terms_conditions.checked){
         alert('Please enter terms & conditions');
         console.log('terms and condition is empty');
-        if(focussetter === false){
-            let focusingelement = document.getElementById('terms_conditions');
-            focusingelement.focus();
-            focusingelement.scrollIntoView();
-            focussetter = true;
-        }
-        allGood = false;
+        setFocusifpossible(formVerification, 'terms_conditions');
+        formVerification.allGood = false;
     }
-    if(allGood === true){
+    return formVerification.allGood;
+};
+
+// addEventListener to button: https://www.javascripttutorial.net/dom/events/add-an-event-handler/
+const testbtn = document.querySelector( '.save' );
+testbtn.addEventListener( 'click', function(event) {
+    console.log('test button is pressed');
+    if(initiateValueCheck() === true){
         alert('Thank you!');
     }
-});
+} );
 // src1: https://www.techiedelight.com/bind-change-event-handler-radio-button-javascript/#:~:text=radio.addEventListener(%27change%27
 // src2: https://www.javascripttutorial.net/javascript-dom/javascript-radio-button/
 // const marriedYes = document.getElementById('married');
-married.addEventListener('change', () => {
+married.addEventListener( 'change', () => {
     document.getElementById('spouse_name').disabled = false;
 } );
-single.addEventListener('change', () => {
+single.addEventListener( 'change', () => {
     document.getElementById('spouse_name').disabled = true;
-} )
+} );
