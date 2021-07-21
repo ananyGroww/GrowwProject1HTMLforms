@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<!-- HTML5 boilerplate code link: https://html5boilerplate.com/ -->
+<!-- HTML5 boilerplate code explanation: https://www.sitepoint.com/a-basic-html5-template/ -->
+<head>
+  <meta charset="utf-8">
+  <title>Employee Input Form</title>
+  <meta name="description" content="First Project which contains a form made up using HTML, CSS, JavaScript.">
+  <meta name="author" content="Anany Prakhar">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="First Project which contains a form made up using HTML, CSS, JavaScript.">
+  <meta property="og:type" content="Web Form">
+  <meta property="og:url" content="groww.svg">
+  <meta property="og:image" content="">
+
+  <link rel="stylesheet" href="main.css">
+
+  <meta name="theme-color" content="#D22877">
+</head>
+
+<body>
+
+  <p>Generic HTML Form: Project 1</p>
+  <form action="" method="POST">
+    <ul>
+      <li class="first_name_ flexing">
+        <label for="first_name">First name</label>
+        <input type="text" class="required" id="first_name" name="First_name" value="A" autofocus>
+      </li>
+      <li class="last_name_ flexing">
+        <label for="last_name">Last name</label>
+        <input type="text" class="required" id="last_name" name="Last_name" value="K">
+      </li>
+      <fieldset class="gender_ flexing">
+        <legend>Gender</legend>
+        <p>
+          <input type="radio" id="male" name="Gender" value="Male">
+          <label for="male">Male</label>
+        </p>
+        <p>
+          <input type="radio" id="female" name="Gender" value="Female">
+          <label for="female">Female</label>
+        </p>
+      </fieldset>
+      <fieldset class="marital_status_ flexing">
+        <!-- All radio buttons should have same "name" -->
+        <legend>Marital status</legend>
+        <p>
+          <input type="radio" id="single" name="Marital_status" value="Single">
+          <label for="single">Single</label>
+        </p>
+        <p>
+          <input type="radio" id="married" name="Marital_status" value="Married">
+          <label for="married">Married</label>
+        </p>
+      </fieldset>
+      <li class="spouse_name_ flexing">
+        <label for="spouse_name">Spouse's name</label>
+        <input type="text" class="required" id="spouse_name" name="Spouse_name" value="Applicable only if married." disabled>
+      </li>
+      <li class="other_details_outer_">
+        <div class="other_details_inner_">
+          <label for="other_details">Other details</label>
+          <textarea class="required" id="other_details" name="Other_details" rows="1">Any relevant info</textarea>
+        </div>
+        <div id="other_details_div"><input type="file" id="other_details" name="Other_details" accept=".pdf" value="Choose pdf files" multiple></div>
+        
+      </li>
+      <li>      
+        <div class="terms_and_conditions flexing">
+          <input type="checkbox" id="terms_conditions" name="Terms_conditions" value="Yes">
+          <label for="terms_conditions">I accept the <a href="https://www.termsandconditionsgenerator.com/live.php?token=3E5RP028GMkvrDvIc6gzLA1zOPG5JxAR">Terms and Conditions</a></label>
+        </div>
+      </li>
+      <li class="command_buttons flexing">
+        <button type="reset" class="reset_button">Reset</button>
+        <button type="button" class="save">Save</button>
+      </li>
+    </ul>
+  </form>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
+
+/* VERY IMPORTANT GUIDE (TO BE READ LATER and for future reference): 
+https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors#types_of_selectors  */
+body > p {
+  /* LHS > RHS: select RHS which are only immediate child of LHS. Dont select deep nested RHS */
+  text-align: center;
+}
+form {
+  margin: 0 auto;
+  width: 500px;
+  padding: 1em;
+  border: 1px dashed #DE3163;
+  border-radius: 1em;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+form li + li{
+  /* LHS" "RHS: space selector means that select&style all the RHS which is inside LHS, no matter how deep its nested
+  https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators*/
+  /* LHS + RHS: + means that select&style only that RHS which is immediately after LHS
+  https://www.w3schools.com/cssref/sel_element_pluss.asp */
+  /* x + x: means select all x that follow another x */
+  margin-top: 1em;
+}
+label {
+  /* display: inline-block; */
+  width: 20%;
+  text-align: center;
+
+}
+input, textarea {
+  /* LHS,RHS: , means that select&style both LHS and RHS */
+  font: 1em sans-serif;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  border: 1px dashed #6495ED;
+  border-radius: 5px;
+}
+input:focus,
+textarea:focus {
+  border-color: violet;
+}
+textarea {
+  vertical-align: top;
+  height: 4em;
+  margin-bottom: 2%;
+}
+button{
+  /* margin-left: .5em; */
+  width: auto;
+  height: 2em;
+  font-size: 1.5em;
+  border-radius: 5px;
+}
+fieldset {
+  margin-bottom: 2%;
+  border-radius: 10px;
+}
+
+.flexing{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 120%;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.other_details_inner_{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.terms_and_conditions {
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.terms_and_conditions label {
+  width: 60%;
+}
+.command_buttons {
+  justify-content: space-evenly;
+}
